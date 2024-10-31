@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CareSync</title>
+  <!-- Linking Google Fonts For Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link rel="stylesheet" href="styles/ai_style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <h1>CareSync</h1> 
+      </div>
+      <div class="avatar">
+        <img src="#" alt="avatar" class="avatar-img">
+      </div>
+    </nav>
+  </header>   
+  
+  
+  <div class="body">
+    <div class="header-left">
+      <div class="sidebar">
+        <ul class="nav-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="ai.html" class="active">AI Health Assistant</a></li>
+          <li><a href="#">Find a Doctor</a></li>
+          <li><a href="#">Fitness Tracker</a></li>
+          <li><a href="#">Mental Health</a></li>
+          <li><a href="#">Cycle Tracker</a></li>
+          <li><a href="#">Reminders</a></li>
+          <li><a href="#">Yoga & Excercise</a></li>
+        </ul>
+        <div class="bottom_content">
+          <hr>
+          <h5>Your all in one Health Companion</h5>
+        </div>
+      </div>
+    </div>  
+    
+    <div class="header-box">
+      <div class="headers">
+        <!-- Header Greetings -->
+        <h1 class="title">Welcome to your CareSync Assistant!</h1>
+        <p class="subtitle">How are you feeling today?</p>
+      
+        <!-- Suggestion list -->
+        <ul class="suggestion-list">
+          <li class="suggestion">
+            <h4 class="text">What could be causing my headache and dizziness?</h4>
+            <span class="icon material-symbols-rounded">help</span>
+          </li>
+          <li class="suggestion">
+            <h4 class="text">What are the common symptoms of COVID-19?</h4>
+            <span class="icon material-symbols-rounded">lightbulb</span>
+          </li>
+          <li class="suggestion">
+            <h4 class="text">What diet changes can help with high blood pressure?</h4>
+            <span class="icon material-symbols-rounded">explore</span>
+          </li>
+          <li class="suggestion">
+            <h4 class="text">Are there any specific exercises that could help with back pain?</h4>
+            <span class="icon material-symbols-rounded">help</span>
+          </li>
+        </ul>
+      </div>
+      
+        <!-- Chat List / Container -->
+      <div class="chat-list">
+      </div>
+      
+        <!-- Typing Area -->
+      <div class="typing-area">
+        <form action="#" class="typing-form">
+          <div class="input-wrapper">
+            <input type="text" placeholder="Enter your question here" class="typing-input" required />
+            <button id="send-message-button" class="icon material-symbols-rounded">send</button>
+          </div>
+          <div class="action-buttons">
+            <span id="theme-toggle-button" class="icon material-symbols-rounded">light_mode</span>
+            <span id="delete-chat-button" class="icon material-symbols-rounded">delete</span>
+          </div>
+        </form>
+        <p class="disclaimer-text">
+          Care Sync provides general health information and is not a substitute for professional medical advice, diagnosis, or treatment. Always consult a healthcare provider for any medical concerns. In an emergency, seek immediate assistance.
+        </p>
+      </div>
+    </div> 
+    
+  </div>
+    
+</body>
+<script src="scripts/ai.js"></script>
+</div>
+</html>

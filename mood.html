@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Care Sync - Enhanced Mood Tracker</title>
+    <style>
+        /* Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #e0f7fa, #80deea);
+            color: #007bb6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #01579b;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            width: 90%;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .option-selection {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .option {
+            cursor: pointer;
+            padding: 10px 20px;
+            border: 1px solid #007bb6;
+            border-radius: 8px;
+            background-color: #e1f5fe;
+            transition: background-color 0.3s ease;
+        }
+        .option:hover {
+            background-color: #b3e5fc;
+        }
+
+        /* Mood & Journal Entry Styling */
+        .mood-selection, .journal-entry {
+            display: none;
+        }
+        .mood-options {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .mood-option img {
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            border-radius: 50%;
+            transition: border-color 0.3s;
+        }
+        .mood-option.selected img {
+            border-color: #0288d1;
+        }
+        .journal-entry textarea {
+            width: 100%;
+            border-radius: 8px;
+            padding: 10px;
+            border: 1px solid #b0bec5;
+            font-size: 1rem;
+            resize: vertical;
+        }
+        .save-button {
+            margin-top: 10px;
+            padding: 8px 16px;
+            background-color: #0288d1;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .save-button:hover {
+            background-color: #0277bd;
+        }
+
+        /* Calendar Styling */
+        .calendar {
+            display: none;
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            text-align: center;
+        }
+        .calendar-day {
+            padding: 15px;
+            background-color: #e3f2fd;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+        .calendar-day:hover {
+            background-color: #bbdefb;
+        }
+        .calendar-day[data-mood="happy"] { background-color: #dcedc8; }
+        .calendar-day[data-mood="sad"] { background-color: #ffcdd2; }
+        .calendar-day[data-mood="angry"] { background-color: #ffccbc; }
+        .calendar-day[data-mood="confused"] { background-color: #d1c4e9; }
+        .calendar-day[data-mood="love"] { background-color: #f8bbd0; }
+        .clear-history {
+            margin-top: 20px;
+            padding: 8px 16px;
+            background-color: #d32f2f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Mood Tracker</h1>
+    <div class="container">
+        
+        <!-- Options Section -->
+        <div class="option-selection">
+            <div class="option" onclick="selectOption('history')">View Mood History</div>
+            <div class="option" onclick="selectOption('journal')">Write a Journal Entry</div>
+            <div class="option" onclick="selectOption('view-journal')">View Previous Journals</div>
+        </div>
+
+        <!-- Mood Selection -->
+        <div class="mood-selection">
+            <div class="mood-options">
+                <div class="mood-option" onclick="selectMood(this, 'happy')"><img src="https://img.icons8.com/emoji/48/happy.png" alt="Happy"></div>
+                <div class="mood-option" onclick="selectMood(this, 'sad')"><img src="https://img.icons8.com/emoji/48/sad.png" alt="Sad"></div>
+                <div class="mood-option" onclick="selectMood(this, 'angry')"><img src="https://img.icons8.com/emoji/48/angry.png" alt="Angry"></div>
+                <div class="mood-option" onclick="selectMood(this, 'confused')"><img src="https://img.icons8.com/emoji/48/confused.png" alt="Confused"></div>
+                <div class="mood-option" onclick="selectMood(this, 'love')"><img src="https://img.icons8.com/emoji/48/love.png" alt="Love"></div>
+            </div>
+            <div class="journal-entry">
+                <textarea id="journal" placeholder="Reflect on your day..."></textarea>
+                <button class="save-button" onclick="saveEntry()">Save Entry</button>
+            </div>
+        </div>
+
+        <!-- Calendar for Mood History -->
+        <div class="calendar" id="calendar"></div>
+        <button class="clear-history" onclick="clearHistory()">Clear History</button>
+    </div>
+
+    <script>
+        let selectedMood = null;
+
+        function selectOption(option) {
+            document.querySelector('.mood-selection').style.display = option === 'journal' ? 'block' : 'none';
+            document.getElementById('calendar').style.display = option === 'history' ? 'grid' : 'none';
+            loadCalendar();
+        }
+
+        function selectMood(element, mood) {
+            selectedMood = mood;
+            document.querySelectorAll('.mood-option').forEach(opt => opt.classList.remove('selected'));
+            element.classList.add('selected');
+        }
+
+        function saveEntry() {
+            const journal = document.getElementById('journal').value;
+            if (!selectedMood || !journal) {
+                alert("Please select a mood and write your journal entry.");
+                return;
+            }
+            const date = new Date().getDate();
+            localStorage.setItem('mood-' + date, selectedMood);
+            localStorage.setItem('journal-' + date, journal);
+            alert('Entry saved!');
+            loadCalendar();
+        }
+
+        function loadCalendar() {
+            const calendar = document.getElementById('calendar');
+            calendar.innerHTML = '';
+            for (let i = 1; i <= 30; i++) {
+                const day = document.createElement('div');
+                day.className = 'calendar-day';
+                day.innerText = i;
+                const savedMood = localStorage.getItem('mood-' + i);
+                if (savedMood) day.dataset.mood = savedMood;
+                calendar.appendChild(day);
+            }
+        }
+
+        function clearHistory() {
+            if (confirm('Clear all mood history?')) {
+                localStorage.clear();
+                loadCalendar();
+            }
+        }
+    </script>
+</body>
+</html>
