@@ -636,6 +636,11 @@ nav .nav-links li a:hover {
   font-size: 1.2rem;
   font-weight: 400;
 }
+
+.footer-col h1{
+  color: #fff;
+  font-size: 2.4rem;
+}
 .footer-col .links {
   margin-top: 20px;
 }
@@ -758,7 +763,7 @@ form {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 0rem 5rem;
+  /* padding: 0rem 5rem; */
   transition: all 0.2s 0.7s;
   overflow: hidden;
   grid-column: 1 / 2;
@@ -782,7 +787,7 @@ form.sign-in-form {
 
 .input-field {
   max-width: 380px;
-  width: 100%;
+  /* width: 100%; */
   background-color: #f0f0f0;
   margin: 10px 0;
   height: 55px;
