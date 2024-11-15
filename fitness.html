@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Tracker</title>
+    <link rel="stylesheet" href="styles/fitness.css">
+</head>
+
+<header>
+    <nav>
+      <div class="logo">
+        <h1>CareSync</h1> 
+      </div>
+      <div class="card-img">
+        <img src="images/avatar.jpg" alt="" class="card-imge">
+      </div>
+    </nav>
+  </header>
+
+<body>
+    <div class="body">
+        <div class="header-left">
+          <div class="sidebar">
+            <ul class="nav-links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="ai.html">AI Health Assistant</a></li>
+              <li><a href="https://www.google.com/maps/search/hospitals+near+me/">Find a Doctor</a></li>
+              <li><a href="fitness.html" class="active">Fitness Tracker</a></li>
+              <li><a href="#">Mental Health</a></li>
+              <li><a href="menstrual.html">Cycle Tracker</a></li>
+              <li><a href="#">Reminders</a></li>
+              <li><a href="yoga.html">Yoga & Excercise</a></li>
+            </ul>
+            <div class="bottom_content">
+              <hr>
+              <h5>Your all in one Health Companion</h5>
+            </div>
+          </div>
+        </div>
+
+    <main>
+        <div class="tracker-container">
+            <!-- Water Intake Tracker -->
+            <section class="tracker">
+                <h2>Water Intake</h2>
+                <label for="waterGoalInput">Set your water goal (Liters):</label>
+                <select id="waterGoalInput">
+                    <!-- Dropdown with multiples of 5 -->
+                </select>
+                <p>Goal: <span id="waterGoal">2</span> Liters</p>
+                <input type="number" id="waterIntake" placeholder="Enter water intake in Liters">
+                <button onclick="addWater()">Add Water</button>
+                <p id="waterStatus"></p>
+            </section>
+
+            <!-- Calorie Tracker -->
+            <section class="tracker">
+                <h2>Calorie Tracker</h2>
+                <label for="calorieGoalInput">Set your calorie goal (kcal):</label>
+                <select id="calorieGoalInput">
+                    <!-- Dropdown with multiples of 5 -->
+                </select>
+                <p>Goal: <span id="calorieGoal">2000</span> kcal</p>
+                <input type="number" id="calorieIntake" placeholder="Enter calorie intake">
+                <button onclick="addCalories()">Add Calories</button>
+                <p id="calorieStatus"></p>
+            </section>
+
+            <!-- Exercise Tracker -->
+            <section class="tracker">
+                <h2>Exercise Tracker</h2>
+                <label for="exerciseGoalInput">Set your exercise goal (minutes):</label>
+                <select id="exerciseGoalInput">
+                    <!-- Dropdown with multiples of 5 -->
+                </select>
+                <p>Goal: <span id="exerciseGoal">30</span> minutes</p>
+                <input type="text" id="exercise" placeholder="Enter exercise (e.g. Running)">
+                <input type="number" id="exerciseDuration" placeholder="Enter duration in minutes">
+                <button onclick="addExercise()">Log Exercise</button>
+                <p id="exerciseStatus"></p>
+            </section>
+        </div>
+    </main>
+
+    <script src="scripts/fitness.js"></script>
+</body>
+</html>

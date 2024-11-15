@@ -4,143 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menstrual Cycle Tracker</title>
-    <style>
-        /* Styling */
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to right, #f8bbd0, #f48fb1);
-            color: #880e4f;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            padding: 20px;
-        }
-        h1 {
-            color: #ad1457;
-        }
-        .container {
-            background-color: #ffffff;
-            border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            padding: 20px;
-            width: 90%;
-            max-width: 600px;
-            margin: 20px auto;
-            text-align: center;
-        }
-        .input-section {
-            margin-bottom: 20px;
-        }
-        label {
-            display: block;
-            font-weight: bold;
-            color: #ad1457;
-            margin-bottom: 5px;
-        }
-        input[type="date"], input[type="number"] {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 15px;
-            border: 1px solid #d32f2f;
-            border-radius: 5px;
-        }
-        .predict-button {
-            padding: 10px 20px;
-            background-color: #d32f2f;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .predict-button:hover {
-            background-color: #c2185b;
-        }
-        .calendar {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 5px;
-            text-align: center;
-            margin-top: 20px;
-        }
-        .calendar-day {
-            padding: 15px;
-            border-radius: 5px;
-            color: #880e4f;
-            transition: background-color 0.3s;
-        }
-        .phase-menstrual { background-color: #ffcdd2; }
-        .phase-follicular { background-color: #f8bbd0; }
-        .phase-ovulation { background-color: #ffeb3b; color: #000; }
-        .phase-luteal { background-color: #f48fb1; }
-    </style>
+    <link rel="stylesheet" href="styles/menstrual.css">
 </head>
-<body>
 
-    <h1>Menstrual Cycle Tracker</h1>
-    <div class="container">
-        
-        <!-- Input Section -->
-        <div class="input-section">
-            <label for="start-date">Last Period Start Date:</label>
-            <input type="date" id="start-date" required>
-
-            <label for="cycle-length">Average Cycle Length (days):</label>
-            <input type="number" id="cycle-length" min="21" max="35" value="28" required>
-
-            <button class="predict-button" onclick="generateCalendar()">Track Cycle</button>
+<header>
+    <nav>
+      <div class="logo">
+        <h1>CareSync</h1> 
+      </div>
+      <div class="card-img">
+        <img src="images/avatar.jpg" alt="" class="card-imge">
+      </div>
+    </nav>
+  </header> 
+  
+  <body>
+  <div class="body">
+    <div class="header-left">
+      <div class="sidebar">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="ai.html">AI Health Assistant</a></li>
+          <li><a href="#https://www.google.com/maps/search/hospitals+near+me/">Find a Doctor</a></li>
+          <li><a href="fitness.html">Fitness Tracker</a></li>
+          <li><a href="#">Mental Health</a></li>
+          <li><a href="menstrual.html" class="active">Cycle Tracker</a></li>
+          <li><a href="#">Reminders</a></li>
+          <li><a href="yoga.html">Yoga & Excercise</a></li>
+        </ul>
+        <div class="bottom_content">
+          <hr>
+          <h5>Your all in one Health Companion</h5>
         </div>
-
-        <!-- Calendar for Cycle Tracking -->
-        <div id="calendar" class="calendar"></div>
+      </div>
     </div>
 
-    <script>
-        function generateCalendar() {
-            const startDate = new Date(document.getElementById("start-date").value);
-            const cycleLength = parseInt(document.getElementById("cycle-length").value);
-            const calendar = document.getElementById("calendar");
 
-            if (isNaN(startDate) || isNaN(cycleLength)) {
-                alert("Please enter a valid date and cycle length.");
-                return;
-            }
+    <div class="container">
+        <h1>Menstrual Cycle Tracker</h1>
+        <form id="cycle-form">
+            <label for="start-date">First Day of Last Period:</label>
+            <input type="date" id="start-date" required>
+            
+            <label for="cycle-length">Average Cycle Length (in days):</label>
+            <input type="number" id="cycle-length" min="21" max="35" required>
+            
+            <label for="period-length">Average Period Duration (in days):</label>
+            <input type="number" id="period-length" min="3" max="7" required>
+            
+            <button type="submit">Track</button>
+        </form>
 
-            calendar.innerHTML = ''; // Clear previous calendar data
-            const phaseDays = {
-                menstrual: 5,
-                follicular: 8,
-                ovulation: 1,
-                luteal: cycleLength - 14
-            };
-
-            // Populate the calendar for 30 days based on phases
-            for (let i = 0; i < 30; i++) {
-                const day = document.createElement("div");
-                day.className = "calendar-day";
-                day.innerText = i + 1;
-
-                let cycleDay = (i % cycleLength) + 1;
-
-                // Determine phase based on the cycle day
-                if (cycleDay <= phaseDays.menstrual) {
-                    day.classList.add("phase-menstrual");
-                    day.title = "Menstrual Phase";
-                } else if (cycleDay <= phaseDays.menstrual + phaseDays.follicular) {
-                    day.classList.add("phase-follicular");
-                    day.title = "Follicular Phase";
-                } else if (cycleDay === phaseDays.menstrual + phaseDays.follicular + 1) {
-                    day.classList.add("phase-ovulation");
-                    day.title = "Ovulation Day";
-                } else {
-                    day.classList.add("phase-luteal");
-                    day.title = "Luteal Phase";
-                }
-                calendar.appendChild(day);
-            }
-        }
-    </script>
+        <div id="calendar"></div>
+    </div>
+    <script src="scripts/menstrual.js"></script>
 </body>
 </html>
