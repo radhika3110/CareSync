@@ -75,6 +75,8 @@ nav .nav-links {
     gap: 0.8rem;
 }
 
+
+
 nav .nav-links li a {
     text-decoration: none;
     font-size: 0.9rem;
@@ -85,10 +87,34 @@ nav .nav-links li a {
     transition: background-color 0.3s ease;
 }
 
+.nav-links .active{
+    background-color: #3498db;
+    color: white;
+}
+
 nav .nav-links li a:hover {
     background-color: #3498db;
     color: white;
 }
+
+.card-img{
+    position: relative;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background: #FFF;
+    padding: 3px;
+  }
+  .card-img .card-imge{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #4070F4;
+  }
+
+  
+
 
 .home{
     width: 100%;
