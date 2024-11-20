@@ -1,4 +1,10 @@
-//for side bar
+//for home page
+const startBtn = document.querySelector('.btn-outline');
+const headerbox = document.querySelector('.header-box');
+
+startBtn.onclick = () => {
+  headerbox.classList.add('active');
+}
 
 //for ai health assistant
 const typingForm = document.querySelector(".typing-form");

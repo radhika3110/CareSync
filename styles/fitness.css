@@ -32,6 +32,33 @@ nav .logo h1 {
     font-weight: 600;
     color: #359fc6;
 }
+nav .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 0.8rem;
+}
+  
+nav .nav-links li a {
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #333;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+  
+nav .nav-links li a:hover {
+    background-color: #3498db;
+    color: white;
+}
+
+
+
+.nav-links .activa {
+    background-color: #3498db;
+    color: white;
+}
 
 .card-img{
     position: relative;

@@ -1,3 +1,14 @@
+//for home page
+const startBtn = document.querySelector('.btn-outline');
+const headerbox = document.querySelector('.container');
+const body = document.querySelector('.body');
+
+startBtn.onclick = () => {
+  headerbox.classList.add('active');
+  body.classList.add('active');
+}
+
+
 document.getElementById('cycle-form').addEventListener('submit', function(e) {
     e.preventDefault();
 
