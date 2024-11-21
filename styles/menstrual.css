@@ -224,13 +224,6 @@ label {
     margin-bottom: 5px;
     text-align: left;
 }
-/* 
-input, button {
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-} */
 
 input {
     width: 100%;
@@ -241,12 +234,6 @@ input {
     font-size: 1rem;
 }
 
-/* button {
-    background-color: #2980b9;
-    color: white;
-    border: none;
-    cursor: pointer;
-} */
 
 button {
     width: 100%;

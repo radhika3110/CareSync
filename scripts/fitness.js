@@ -1,3 +1,25 @@
+//for home page
+const Btn1 = document.querySelector('.btn1');
+const Btn2 = document.querySelector('.btn2');
+const Btn3 = document.querySelector('.btn3');
+
+const tracker1 = document.querySelector('.tracker1');
+const tracker2 = document.querySelector('.tracker2');
+const tracker3 = document.querySelector('.tracker3');
+
+Btn1.onclick = () => {
+    tracker1.classList.add('active');
+}
+
+Btn2.onclick = () => {
+    tracker2.classList.add('active');
+}
+
+Btn3.onclick = () => {
+    tracker3.classList.add('active');
+}
+
+
 // Default Goals
 let waterIntake = 0;
 let calorieIntake = 0;

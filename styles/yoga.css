@@ -12,7 +12,7 @@
 /* root values */
 :root{
     --container-color: #1a1e21;
-    --second-color: #e6f5ff;
+    --second-color: rgb(253, 255, 131);
     --text-color: #172317;
     --bg-color: #fff;
 }
@@ -76,8 +76,6 @@ nav .nav-links {
     gap: 0.8rem;
 }
 
-
-
 nav .nav-links li a {
     text-decoration: none;
     font-size: 0.9rem;
@@ -120,8 +118,7 @@ nav .nav-links li a:hover {
 .home{
     width: 100%;
     min-height: 440px;
-    /* background: url("hero.jpg"); */
-    background: url(yoga\ banner3.jpg);
+    background: url(yoga\ banner3.png);
     background-size: cover;
     background-position: center;
     display: grid;
@@ -135,12 +132,13 @@ nav .nav-links li a:hover {
 }
 
 .home-title{
-    font-size: 3.5rem;
+    font-size: 5.5rem;
 }
 
 .home-subtitle{
-    font-size: 1rem;
-    font-weight: 400;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #feffe9;
 }
 
 .about{
@@ -252,7 +250,8 @@ nav .nav-links li a:hover {
     font-size: 0.9rem;
     font-weight: 500;
     text-transform: uppercase;
-    color: var(--second-color);
+    color: #014779;
+    /* color: var(--second-color); */
 }
 
 .post-title{
@@ -271,6 +270,7 @@ nav .nav-links li a:hover {
     text-transform: uppercase;
     margin-top: 4px;
     font-weight: 400;
+    /* color: #002742; */
 }
 
 .post-description{

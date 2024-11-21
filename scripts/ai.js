@@ -1,9 +1,11 @@
 //for home page
 const startBtn = document.querySelector('.btn-outline');
 const headerbox = document.querySelector('.header-box');
+const mainbox = document.querySelector('.main-box');
 
 startBtn.onclick = () => {
   headerbox.classList.add('active');
+  mainbox.classList.add('active');
 }
 
 //for ai health assistant
@@ -101,7 +103,7 @@ const generateAPIResponse = async (incomingMessageDiv) => {
 // Show a loading animation while waiting for the API response
 const showLoadingAnimation = () => {
   const html = `<div class="message-content">
-                  <img class="avatar" src="images/gemini.svg" alt="Gemini avatar">
+                  <img class="avatar" src="images/avatar.jpg" alt="Gemini avatar">
                   <p class="text"></p>
                   <div class="loading-indicator">
                     <div class="loading-bar"></div>
@@ -135,7 +137,7 @@ const handleOutgoingChat = () => {
   isResponseGenerating = true;
 
   const html = `<div class="message-content">
-                  <img class="avatar" src="images/user.jpg" alt="User avatar">
+                  <img class="avatar" src="images/avatar2.jpg" alt="User avatar">
                   <p class="text"></p>
                 </div>`;
 
