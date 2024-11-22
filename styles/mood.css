@@ -8,12 +8,16 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    /* background-color: #8c53ff; */
-    /* margin: 0; */
-    /* display: flex;
-    align-items: center;
-    justify-content: center; */
-    /* min-height: 100vh; */
+      /* background: linear-gradient(135deg, #f3f8ff, #e3eaf8); */
+      /* background: url(mental.png);
+      background-size: cover;
+      background-position: center; */
+      /* height: 100vh; */
+      /* margin-left: 5rem; */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
 }
 
 header {
@@ -81,13 +85,96 @@ nav .nav-links {
     border: 4px solid #4070F4;
   }
 
+  
+.body1{
+  margin-top: 9rem; 
+}
 
-.body {
+  .body1 h1 {
+    /* text-align: left; */
+    font-size: 3rem;
+    line-height: 1.2;
+    margin: 10px 0;
+    color: #2980b9;
+}
+
+  
+.body1 p {
+    font-size: 1.1rem;
+    color: #6c757d;
+    margin: 10px 0 30px;
+}
+
+
+
+
+.body1 .buttons {
     display: flex;
-    align-items: center;
+    gap: 20px;
     justify-content: center;
-    flex-direction: column;
-    margin-top: 2rem;
+  }
+
+  .body1   .btn {
+    padding: 15px 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #0066cc;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
+  .body1   .btn:hover {
+    background-color: #004c99;
+    transform: translateY(-3px);
+}
+
+.body1 .btn-outline {
+    background-color: transparent;
+    border: 2px solid #0066cc;
+    color: #0066cc;
+  }
+  
+  .body1  .btn-outline:hover {
+    background-color: #0066cc;
+    color: #fff;
+  }
+
+  .body1 img {
+    height: 50vh;
+    width: fit-content;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+  }
+
+.body1.active {
+    opacity: 0;
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 2rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* right: 50%; */
+  transform: translate(-50%, -50%);
+  width: 30%;
+  opacity: 0;
+  pointer-events: none;
+  transition: .3s ease;
+}
+
+
+.main.active {
+opacity: 1;
+pointer-events: auto;
 }
 
 #container {
@@ -310,7 +397,7 @@ textarea {
 }
 
 .container1 {
-    background-color: #1e1e1e;
+    background-color: #04004f;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);

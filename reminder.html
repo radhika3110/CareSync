@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareSync Reminders</title>
+    <link rel="stylesheet" href="styles/reminder.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>CareSync</h1> 
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="ai.html">AI Health Assistant</a></li>
+                <li><a href="https://www.google.com/maps/search/hospitals+near+me/">Find a Doctor</a></li>
+                <li><a href="fitness.html">Fitness Tracker</a></li>
+                <li><a href="mood.html" >Mental Health</a></li>
+                <li><a href="menstrual.html">Cycle Tracker</a></li>
+                <li><a href="reminder.html" class="activa">Reminders</a></li>
+                <li><a href="yoga.html">Yoga & Excercise</a></li>
+            </ul>
+            <div class="card-img">
+                <img src="images/avatar.jpg" alt="" class="card-imge">
+            </div>
+        </nav>
+    </header>
+
+        <div class="body">
+          <h1>"Welcome to <br> your personal health organizer!"</h1>
+          <p>"Stay on top of your health goals with smart, customizable reminders that helps you in your daily life tasks."Take charge of your wellness journey with Care Sync reminders today!    </p>
+          <div class="buttons">
+            <a class="btn">Set Reminder</a>
+          </div>
+          <!-- <img src="images/reminder.png" alt=""> -->
+        </div> 
+
+    <div class="container">
+        <div class="reminder-container">
+            <h1 class="title">CareSync Reminders</h1>
+            <div class="reminder-form">
+                <input type="text" id="reminderTitle" placeholder="Enter Reminder Title" />
+                <input type="datetime-local" id="reminderTime" placeholder="Enter Date and Time" />
+                <button id="addReminderBtn">Add Reminder</button>
+            </div>
+            <h2 class="subheading">Your Reminders</h2>
+            <ul id="reminderList"></ul>
+        </div>
+    </div>
+
+    <script src="scripts/reminder.js"></script>
+</body>
+</html>

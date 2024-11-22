@@ -1,3 +1,29 @@
+//for home page
+const Btn1 = document.querySelector('.btn');
+const Btn2 = document.querySelector('.btn-outline');
+const mainbox = document.querySelector('.body1');
+
+const tracker1 = document.querySelector('.container');
+const tracker2 = document.querySelector('.container1');
+// const tracker3 = document.querySelector('.tracker3');
+
+Btn1.onclick = () => {
+    tracker2.classList.add('active');
+    mainbox.classList.add('active');
+}
+
+Btn2.onclick = () => {
+    tracker1.classList.add('active');
+    mainbox.classList.add('active');
+}
+
+// Btn3.onclick = () => {
+//     tracker3.classList.add('active');
+// }
+
+
+
+
 /*************************************************************************
  * Create Note Popup Logic
  **************************************************************************/
